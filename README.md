@@ -1,271 +1,179 @@
-# 🚀 Smart Data Extractor
+# 🚀 Smart Data Extractor (Pentesting & Security Utility)
 
-> **Collect important Windows user data quickly, safely, and intelligently.**
+## 📌 Overview
 
-Smart Data Extractor is a lightweight Python application that automatically collects important user data from a Windows computer and saves it to a USB drive or another storage device.
+Smart Data Extractor is a Python-based Windows utility that automates structured data collection from a target system. It is designed for **authorized security testing environments only**, where controlled data extraction is required for analysis, auditing, or forensic evaluation.
 
-Instead of copying the entire system, it focuses only on valuable user files while skipping unnecessary Windows folders. This makes the extraction process much faster, cleaner, and more storage efficient.
+The tool intelligently scans user environments, prioritizes important directories, and copies selected data into a structured backup format on a USB drive (optimized for large-capacity drives such as 128GB pendrives).
 
-Whether you're creating a backup, migrating to a new computer, performing digital forensics, responding to an incident, or conducting an authorized security assessment, Smart Data Extractor helps automate the process.
-
----
-
-# ✨ Features
-
-## 📂 Smart File Collection
-
-Automatically collects files from important user folders such as:
-
-- Desktop
-- Documents
-- Downloads
-- Pictures
-- Videos
-- Music
-- OneDrive
-- Favorites
-- Contacts
-- Recent Files
-- Camera Roll
-- Screenshots
-
-It keeps the original folder structure, making files easy to locate later.
+It strictly avoids system-critical folders to maintain stability and reduce unnecessary data collection overhead.
 
 ---
 
-## 🌐 Browser Data Collection
+## ⚠️ Legal & Ethical Notice
 
-Collects important browser data from supported browsers.
+This tool is strictly intended for:
 
-### Google Chrome
+- ✔ Authorized penetration testing
+- ✔ Security auditing
+- ✔ Digital forensics (with permission)
+- ✔ System migration & analysis (authorized environments only)
 
-- Bookmarks
-- Browsing History
-- Login Database
+❌ Unauthorized use on systems without explicit permission is strictly prohibited.
 
-### Microsoft Edge
-
-- Bookmarks
-- Browsing History
-- Login Database
+The user is fully responsible for complying with all applicable laws and organizational policies.
 
 ---
 
-## 📶 WiFi Profile Collection
+## ⚙️ Core Functionality
 
-Extracts saved WiFi profiles from Windows.
+Smart Data Extractor performs structured extraction using a multi-stage pipeline:
 
-Information collected includes:
+### 🔄 Workflow Logic
 
-- Network Name (SSID)
-- Saved Password (when available)
-- Profile Information
-
-Administrator privileges are required for this feature.
-
----
-
-## 📄 Supports 50+ File Types
-
-Automatically copies many common file formats.
-
-### Documents
-
-- PDF
-- DOC
-- DOCX
-- TXT
-- XLS
-- XLSX
-- PPT
-- PPTX
-- CSV
-- RTF
-- ODT
-- Markdown
-
-### Images
-
-- JPG
-- JPEG
-- PNG
-- GIF
-- BMP
-- TIFF
-- SVG
-- WEBP
-- PSD
-- RAW
-
-### Videos
-
-- MP4
-- AVI
-- MKV
-- MOV
-- WMV
-- FLV
-
-### Audio
-
-- MP3
-- WAV
-- FLAC
-- AAC
-- M4A
-
-### Archives
-
-- ZIP
-- RAR
-- 7Z
-- TAR
-- GZ
-
-### Database Files
-
-- JSON
-- XML
-- SQL
-- SQLite
-- DB
-
-### Source Code
-
-- Python
-- Java
-- C
-- C++
-- HTML
-- CSS
-- JavaScript
-- PHP
+```
+USB Detection
+    ↓
+Permission Validation (Admin Check)
+    ↓
+Optimized Path Mapping
+    ↓
+System Folder Filtering
+    ↓
+Target Data Scanning
+    ↓
+Smart File Filtering
+    ↓
+Secure Copy Operation
+    ↓
+Space Management Control (128GB limit)
+    ↓
+Report Generation
+```
 
 ---
 
-## 🚫 Intelligent System Folder Exclusion
+## ✨ Key Features
 
-To save time and storage space, Smart Data Extractor automatically skips unnecessary Windows folders.
+### 📂 Intelligent Data Collection
+- Extracts user-level data from structured Windows directories
+- Targets Desktop, Documents, Downloads, Pictures, Videos, Music, and AppData
 
-Examples include:
+---
 
-- Windows
-- Program Files
-- Program Files (x86)
-- ProgramData
-- Recovery
-- Boot
-- Windows.old
-- Recycle Bin
+### 🚫 System-Level Exclusion Engine
+Automatically excludes critical system directories such as:
+
+- Windows system folders
+- Program Files / Program Files (x86)
 - System Volume Information
-- Pagefile
-- Hibernation File
+- Recovery partitions
+- Boot and system files
 
-Only useful user data is collected.
-
----
-
-## 💾 Smart Storage Management
-
-The application is optimized for removable USB drives.
-
-Features include:
-
-- Free space detection
-- Storage usage monitoring
-- Configurable storage limit
-- Safety buffer protection
-- Large file detection
-- FAT32 compatibility
+This ensures safe operation without system disruption.
 
 ---
 
-## ⚡ Fast Copy Engine
+### 🌐 Browser Data Extraction
+Supports extraction of browser-related artifacts:
 
-Smart Data Extractor uses an optimized copy process that provides:
-
-- Faster scanning
-- Recursive folder search
-- Extension filtering
-- Metadata preservation
-- Reliable file copying
+- Google Chrome (Bookmarks, History, Login Data)
+- Microsoft Edge (Bookmarks, History, Login Data)
 
 ---
 
-## 📊 Live Progress Display
-
-During extraction, the application displays:
-
-- Current folder
-- Files found
-- Files copied
-- Data copied
-- Storage usage
-- Progress updates
+### 📶 WiFi Profile Extraction
+- Extracts saved WiFi profiles using Windows native commands
+- Retrieves SSID and stored credentials (requires admin privileges)
 
 ---
 
-## 📑 Automatic Summary Report
-
-After every extraction, a detailed report is generated automatically.
-
-The report includes:
-
-- Computer Name
-- Username
-- Date and Time
-- Execution Time
-- Destination Folder
-- Total Files Copied
-- Total Data Size
-- Storage Used
-- Extracted Locations
-- WiFi Profiles
-- Skipped System Folders
+### 💾 Smart Storage Management
+- Designed for 128GB pendrive optimization
+- Implements 100GB safe usage limit
+- Includes 2GB safety buffer
+- Prevents disk overflow and corruption
 
 ---
 
-## 🔒 Administrator Support
+### 📁 File Type Intelligence (50+ Extensions)
+Supports structured extraction of:
 
-The application automatically checks for administrator privileges.
-
-If required, Windows will request permission to restart the application with elevated access.
-
-This allows the program to collect additional system information when authorized.
-
----
-
-## 📁 Organized Output
-
-All collected data is saved inside a timestamped folder.
-
-Example:
-
-```
-Data-Backup-20260702-145300
-│
-├── User_Desktop
-├── User_Documents
-├── User_Downloads
-├── User_Pictures
-├── User_Videos
-├── Browser_Data
-├── WiFi_Profiles
-└── EXTRACTION_SUMMARY.txt
-```
-
-Everything is organized automatically, making restoration simple.
+- Documents (PDF, DOCX, TXT, XLSX, PPTX, etc.)
+- Images (JPG, PNG, GIF, SVG, RAW, PSD, etc.)
+- Videos (MP4, MKV, AVI, MOV, etc.)
+- Audio (MP3, WAV, FLAC, AAC, etc.)
+- Archives (ZIP, RAR, 7Z, TAR, etc.)
+- Code files (PY, JS, HTML, CSS, C++, JAVA, PHP)
+- Data formats (JSON, XML, SQL, DB)
 
 ---
 
-# ⚙️ Requirements
+### ⚡ Performance Optimization
+- Multi-layer directory scanning
+- Chunk-based file copying (128KB buffer)
+- Thread-safe design foundation
+- Large file skip logic (>2GB limit for FAT32)
 
-- Windows 7 or later
+---
+
+### 📊 Real-Time Monitoring
+During execution, the tool displays:
+
+- Active scanning paths
+- File discovery progress
+- Copy status updates
+- Storage utilization
+- Completion tracking
+
+---
+
+### 📄 Automated Reporting System
+Generates a structured extraction report containing:
+
+- System information (username, machine name)
+- Execution timestamp
+- Total files copied
+- Total data size transferred
+- Path-wise extraction summary
+- WiFi credentials (if extracted)
+- Skipped system directories list
+
+---
+
+## 🧠 Optimization Strategy
+
+The tool follows a strict prioritization model:
+
+### 🔝 Priority Levels
+
+1. **User Personal Data (Highest Priority)**
+   - Desktop, Documents, Downloads
+
+2. **Work & Project Data**
+   - Drive-based folders (D:, E:, F:)
+
+3. **Application Data**
+   - AppData (Roaming / Local)
+
+4. **Browser Artifacts**
+   - Chrome / Edge profiles
+
+5. **Optional Media Files**
+   - Music, Videos, Pictures
+
+System files are always excluded regardless of category.
+
+---
+
+## 💻 Requirements
+
+- Windows 7/8/10/11
 - Python 3.6+
-- USB Drive
-- Administrator privileges (recommended)
+- Administrator privileges (required for full functionality)
+- USB storage device (recommended: 128GB)
 
-Install dependency:
+### Dependency
 
 ```bash
 pip install psutil
@@ -273,88 +181,110 @@ pip install psutil
 
 ---
 
-# 🚀 Installation
-
-Clone the repository.
-
-```bash
-git clone https://github.com/yourusername/smart-data-extractor.git
-```
-
-Go to the project folder.
-
-```bash
-cd smart-data-extractor
-```
-
-Install the required package.
-
-```bash
-pip install psutil
-```
-
-Run the application.
+## 🚀 Usage
 
 ```bash
 python data_extractor.py
 ```
 
----
+### Execution Flow
 
-# 🎯 Use Cases
-
-Smart Data Extractor is useful for:
-
-- Personal Backups
-- Windows Reinstallation
-- Computer Migration
-- Data Recovery
-- IT Administration
-- Digital Forensics
-- Incident Response
-- Authorized Security Assessments
+1. Insert USB drive
+2. Run script as Administrator
+3. Tool detects removable drive automatically
+4. Confirms available storage
+5. Starts controlled extraction
+6. Generates structured backup + report
 
 ---
 
-# 🛡️ Privacy
+## 📦 Output Structure
 
-Smart Data Extractor works completely offline.
-
-- No cloud uploads
-- No internet connection required
-- No external servers
-- Your data stays on your computer and storage device
-
----
-
-# ⚠️ Disclaimer
-
-This project is intended only for systems that you own or have explicit authorization to access.
-
-You are responsible for ensuring that your use of this software complies with all applicable laws, organizational policies, and privacy requirements.
-
-The developers are not responsible for misuse of this software.
+```
+Data-Backup-[TIMESTAMP]/
+│
+├── User_Desktop/
+├── User_Documents/
+├── User_Downloads/
+├── User_Pictures/
+├── AppData/
+├── Browser_Data/
+├── WiFi_Profiles/
+└── EXTRACTION-SUMMARY.txt
+```
 
 ---
 
-# 🤝 Contributing
+## 🔐 Security Design
 
-Contributions are always welcome.
+- No external network communication
+- No cloud upload or remote sync
+- All processing performed locally
+- No modification of original files
+- Read-only extraction model
 
-If you find a bug, have an idea for a new feature, or want to improve the project, feel free to open an issue or submit a pull request.
-
----
-
-# 📜 License
-
-This project is licensed under the MIT License.
+⚠️ WiFi credentials and browser data are sensitive and should be handled securely after extraction.
 
 ---
 
-# ❤️ Support the Project
+## 🧪 Use Cases (Authorized Only)
 
-If you found this project useful, consider giving it a ⭐ on GitHub.
+- Penetration testing (authorized environments)
+- Security audits and assessments
+- Digital forensic investigations
+- Incident response analysis
+- System migration in enterprise environments
+- Controlled security research labs
 
-Your support helps improve the project and encourages future development.
+---
 
-Thank you for using **Smart Data Extractor**.
+## ⚠️ Limitations
+
+- Large files (>2GB) are skipped (FAT32 compatibility)
+- Performance depends on USB speed
+- Admin privileges required for full extraction
+- Some browser data may be locked during active sessions
+
+---
+
+## 📜 License
+
+MIT License
+
+---
+
+## 🧾 Disclaimer
+
+This software is provided for educational, security testing, and authorized use only.
+
+The developer is not responsible for misuse or unauthorized deployment of this tool.
+
+---
+
+## ⭐ Project Status
+
+✔ Active Development  
+✔ Optimized for Large Storage Devices  
+✔ Security-Focused Design  
+✔ Pentesting-Oriented Utility  
+
+---
+
+## 🤝 Contribution
+
+Pull requests are welcome for:
+
+- Performance improvements
+- Cross-platform support
+- Additional browser modules
+- Enhanced reporting system
+- GUI version development
+
+---
+
+## 🧠 Final Note
+
+This tool is built for controlled environments where structured data extraction is required for security analysis and system evaluation.
+
+Use responsibly.
+```
