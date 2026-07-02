@@ -1,16 +1,6 @@
 # 🚀 Smart Data Extractor
 
-> A structured Windows-based data extraction utility designed for **authorized security testing, forensic analysis, and controlled system auditing**.
-
----
-
-# 📖 Introduction
-
-Smart Data Extractor is built to observe a Windows system in a controlled and disciplined way. It does not blindly copy everything. Instead, it follows a structured logic where only meaningful user-level data is collected, while system-level files are intentionally ignored.
-
-It works quietly in the background of a system, identifies useful user content, and prepares a structured backup inside a USB drive, especially optimized for large storage devices like 128GB pendrives.
-
----
+In real-world security assessments, time is often limited and system information is widely scattered across different locations. Security testers and forensic analysts may not always know where critical user-related artifacts are stored. In such scenarios, this tool helps streamline the process by quickly locating and organizing relevant system data in a structured format, allowing faster analysis during authorized testing and investigations.
 
 # ⚙️ Working Philosophy
 
@@ -81,7 +71,7 @@ This feature is intended strictly for authorized environments such as forensic o
 
 ## 🚫 System Awareness (Smart Filtering)
 
-One of the most important parts of the tool is what it avoids. 
+One of the most important parts of the tool is what it avoids.
 
 It automatically skips:
 
@@ -211,4 +201,5 @@ Data-Backup-[Timestamp]/
 - No modification of original files  
 - Local-only processing  
 - Read-only extraction model  
+
 
