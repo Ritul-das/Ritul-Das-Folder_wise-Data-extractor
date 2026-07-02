@@ -81,7 +81,7 @@ This feature is intended strictly for authorized environments such as forensic o
 
 ## 🚫 System Awareness (Smart Filtering)
 
-One of the most important parts of the tool is what it avoids.
+One of the most important parts of the tool is what it avoids. 
 
 It automatically skips:
 
